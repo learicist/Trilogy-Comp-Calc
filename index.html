@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <title>Trilogy Compensation Calculator</title>
+	</head>
+	
+	<body>
+	
+		<div id="getDate">
+			<h3 id="date">Date</h3>
+		</div>
+	
+		<div class="card">
+			<div id="collapseNine" class="collapse" role="tabpanel" aria-labelledby="headingNine">
+				<div class="card-body">
+					<div class="row calc-heading">
+						<h5><span class="sop-heading">Standard Part Time Position</span></h5>
+					</div>
+					<div class="row">
+						<div class="col-6">
+							<p><strong>Calculate by # Classes Missed</strong></p>
+							<form>
+								<div class="form-group">
+									<label># Missed Classes:</label>
+									<input type="number" name="missedClasses" id="missedClasses" min="1" max="72">
+								</div>
+								<a id="calculateByDaysMissed" class="waves-effect waves-light btn calcBtn">Calculate</a>
+							</form>
+							<p><strong>Calculate by # Classes Remaining</strong></p>
+							<form>
+								<div class="form-group input-field inline calcInput">
+									<label># Remaining Classes:</label>
+									<input type="number" name="remainingClasses" id="remainingClasses" min="1" max="72">
+								</div>
+								<a id="calculateByDaysRemaining" class="waves-effect waves-light btn calcBtn">Calculate</a>
+							</form>
+						</div>
+						<div class="col-2" id="baseDiv">
+						</div>
+						<div class="col-2" id="bonusDiv">
+						</div>
+						<div class="col-2" id="totalDiv">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> <!--card-->
+	
+		
+		<script type="text/javascript">
+
+			$(document).ready(function () {
+
+				// Load today's date
+				var d = new Date();
+				var n = d.toLocaleDateString();
+				document.getElementById('date').innerHTML = "Today: " + n;
+				
+				//University Choice
+				/*let uniChoice = $('#university').val();
+				let unis = document.getElementsByClassName('uni-choice');
+				for (let i=0; i<unis.length; i++){
+					unis[i].innerHTML = uniChoice;
+				}*/
+
+				//updated this function to jquery from vanilla JS
+				/*$('#university').on('change', function() {
+					uniChoice = $('#university').val();
+					for(let i=0; i<unis.length; i++){
+						unis[i].innerHTML = uniChoice;
+					}
+				});*/
+				
+				//Copy to Click functionality
+				/*$('#copyButton').on('click', function () {
+					if (document.selection) { 
+						var range = document.body.createTextRange();
+						range.moveToElementText(document.getElementById('standardTa'));
+						range.select().createTextRange();
+						document.execCommand("copy"); 
+
+					} else if (window.getSelection) {
+						var range = document.createRange();
+						 range.selectNode(document.getElementById('standardTa'));
+						 window.getSelection().removeAllRanges();
+						 window.getSelection().addRange(range);
+						 document.execCommand("copy");
+						 // alert("Email Copied") 
+					}
+				});*/
+
+			});
+
+			// CALCULATE COMPENSATION
+
+			// Calculate by classes missed
+			$('#collapseNine').on("click", "#calculateByDaysMissed", function(){
+
+				$("#baseDiv").empty();
+				$("#bonusDiv").empty();
+				$("#totalDiv").empty();
+				$('#remainingClasses').val('');
+
+				var classesMissed = $("#missedClasses").val();
+				var remainingClasses = (72 - classesMissed);
+
+				/*
+				console.log("classes missed", classesMissed);
+				console.log("remaining classes", remainingClasses);
+				*/
+
+				var totalComp = Math.round(remainingClasses * 90.28);
+				var berkeleyTotalComp = Math.round(remainingClasses * 98.8888889);
+				var basePay = Math.round(remainingClasses * 69.44);
+				var berkeleyBasePay = Math.round(remainingClasses * 78.055555);
+				var bonus =  (totalComp - basePay);
+				var berkeleyBonus = (berkeleyTotalComp - berkeleyBasePay);
+
+				//console.log(basePay, bonus, totalComp, berkeleyBasePay, berkeleyTotalComp);
+
+				$("#baseDiv")
+					.append("<p class='compHeading'>Base Pay</p>")
+					.append(basePay + '<br>' + `(Berkeley: ${berkeleyBasePay})`);
+					
+				$("#bonusDiv")
+					.append("<p class='compHeading'>Bonus</p>")
+					.append(bonus + '<br>' + `(Berkeley: ${berkeleyBonus})`);
+					
+				$("#totalDiv")
+					.append("<p class='compHeading'>Total Comp</p>")
+					.append(totalComp + '<br>' + `(Berkeley: ${berkeleyTotalComp})`);
+
+			});
+
+			// Calculate by classes remaining
+			$('#collapseNine').on("click", "#calculateByDaysRemaining", function(){
+
+				$("#baseDiv").empty();
+				$("#bonusDiv").empty();
+				$("#totalDiv").empty();
+				$('#missedClasses').val('');
+
+				var remainingClasses = $("#remainingClasses").val();
+				
+				console.log(remainingClasses);
+
+				var totalComp = Math.round(remainingClasses * 90.28);
+				var berkeleyTotalComp = Math.round(remainingClasses * 98.8888889);
+				var basePay = Math.round(remainingClasses * 69.44);
+				var berkeleyBasePay = Math.round(remainingClasses * 78.055555);
+				var bonus = (totalComp - basePay);
+				var berkeleyBonus = (berkeleyTotalComp - berkeleyBasePay);
+
+				$("#baseDiv")
+					.append("<p class='compHeading'>Base Pay</p>")
+					.append(basePay + '<br>' + `(Berkeley: ${berkeleyBasePay})`);
+					
+				$("#bonusDiv")
+					.append("<p class='compHeading'>Bonus</p>")
+					.append(bonus + '<br>' + `(Berkeley: ${berkeleyBonus})`);
+					
+				$("#totalDiv")
+					.append("<p class='compHeading'>Total Comp</p>")
+					.append(totalComp + '<br>' + `(Berkeley: ${berkeleyTotalComp})`);
+
+			});
+
+			//Outdated copy to click functionality
+			/*function CopyToClipboard(containerid) {
+				if (document.selection) { 
+					var range = document.body.createTextRange();
+					range.moveToElementText(document.getElementById(containerid));
+					range.select().createTextRange();
+					document.execCommand("copy"); 
+
+				} else if (window.getSelection) {
+					var range = document.createRange();
+					 range.selectNode(document.getElementById(containerid));
+					 window.getSelection().addRange(range);
+					 document.execCommand("copy");
+					 // alert("Email Copied") 
+				}
+			}*/
+			
+		</script>
+	
+	
+	</body>
+
+</html>
