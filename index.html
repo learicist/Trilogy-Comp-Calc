@@ -13,7 +13,7 @@
 	<body>
 	
 		<div id="getDate">
-			<h3 id="date">Date</h3>
+			<h3 id="date"></h3>
 		</div>
 	
 		<div class="card">
@@ -25,21 +25,18 @@
 					<div class="row">
 						<div class="col-6">
 							<p><strong>Calculate by # Classes Missed</strong></p>
-							<form>
-								<div class="form-group">
-									<label># Missed Classes:</label>
-									<input type="number" name="missedClasses" id="missedClasses" min="1" max="72">
-								</div>
-								<a id="calculateByDaysMissed" class="waves-effect waves-light btn calcBtn">Calculate</a>
-							</form>
+							<div class="form-group">
+								<label># Missed Classes:</label>
+								<input type="number" name="missedClasses" id="missedClasses" min="1" max="72">
+							</div>
+							<button id="calculateByDaysMissed" class="waves-effect waves-light btn calcBtn">Calculate</button>
+							
 							<p><strong>Calculate by # Classes Remaining</strong></p>
-							<form>
-								<div class="form-group input-field inline calcInput">
-									<label># Remaining Classes:</label>
-									<input type="number" name="remainingClasses" id="remainingClasses" min="1" max="72">
-								</div>
-								<a id="calculateByDaysRemaining" class="waves-effect waves-light btn calcBtn">Calculate</a>
-							</form>
+							<div class="form-group input-field inline calcInput">
+								<label># Remaining Classes:</label>
+								<input type="number" name="remainingClasses" id="remainingClasses" min="1" max="72">
+							</div>
+							<button id="calculateByDaysRemaining" class="waves-effect waves-light btn calcBtn">Calculate</button>
 						</div>
 						<div class="col-2" id="baseDiv">
 						</div>
