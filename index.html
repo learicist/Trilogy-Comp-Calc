@@ -66,38 +66,14 @@
 					unis[i].innerHTML = uniChoice;
 				}*/
 
-				//updated this function to jquery from vanilla JS
-				/*$('#university').on('change', function() {
-					uniChoice = $('#university').val();
-					for(let i=0; i<unis.length; i++){
-						unis[i].innerHTML = uniChoice;
-					}
-				});*/
-				
-				//Copy to Click functionality
-				/*$('#copyButton').on('click', function () {
-					if (document.selection) { 
-						var range = document.body.createTextRange();
-						range.moveToElementText(document.getElementById('standardTa'));
-						range.select().createTextRange();
-						document.execCommand("copy"); 
-
-					} else if (window.getSelection) {
-						var range = document.createRange();
-						 range.selectNode(document.getElementById('standardTa'));
-						 window.getSelection().removeAllRanges();
-						 window.getSelection().addRange(range);
-						 document.execCommand("copy");
-						 // alert("Email Copied") 
-					}
-				});*/
-
 			});
 
 			// CALCULATE COMPENSATION
+			
+			
 
 			// Calculate by classes missed
-			$('#collapseNine').on("click", "#calculateByDaysMissed", function(){
+			/*$('#collapseNine').on("click", "#calculateByDaysMissed", function(){
 
 				$("#baseDiv").empty();
 				$("#bonusDiv").empty();
@@ -106,12 +82,6 @@
 
 				var classesMissed = $("#missedClasses").val();
 				var remainingClasses = (72 - classesMissed);
-
-				/*
-				console.log("classes missed", classesMissed);
-				console.log("remaining classes", remainingClasses);
-				*/
-
 				var totalComp = Math.round(remainingClasses * 90.28);
 				var berkeleyTotalComp = Math.round(remainingClasses * 98.8888889);
 				var basePay = Math.round(remainingClasses * 69.44);
@@ -166,7 +136,7 @@
 					.append("<p class='compHeading'>Total Comp</p>")
 					.append(totalComp + '<br>' + `(Berkeley: ${berkeleyTotalComp})`);
 
-			});
+			});*/
 
 			
 		</script>
