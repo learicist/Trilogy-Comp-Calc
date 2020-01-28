@@ -1,0 +1,16 @@
+body {
+	margin-top: 5%;
+	text-align: center;
+}
+
+p {
+	font-size: 18px;
+}
+
+label {
+	font-size: 18px;
+}
+
+.resultsDiv {
+	margin-top: 15px;
+}

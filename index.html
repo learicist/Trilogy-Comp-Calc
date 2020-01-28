@@ -3,6 +3,10 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Trilogy Compensation Calculator</title>
+		<link 
+			rel="stylesheet"
+			href="main.css"
+			type="text/css">
 		<script
 			src="https://code.jquery.com/jquery-3.4.1.js"
 			integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -11,44 +15,49 @@
 	</head>
 	
 	<body>
-	
-		<div id="getDate">
-			<h3 id="date"></h3>
-		</div>
-	
-		<div class="card">
-			<div id="collapseNine" class="collapse" role="tabpanel" aria-labelledby="headingNine">
-				<div class="card-body">
-					<div class="row calc-heading">
-						<h5><span class="sop-heading">Standard Part Time Position</span></h5>
-					</div>
-					<div class="row">
-						<div class="col-6">
-							<p><strong>Calculate by # Classes Missed</strong></p>
-							<div class="form-group">
-								<label># Missed Classes:</label>
-								<input type="number" name="missedClasses" id="missedClasses" min="1" max="72">
+		<div class="container">
+			<div id="getDate">
+				<h2 id="date"></h3>
+			</div>
+		
+			<div class="card">
+				<div id="collapseNine" class="collapse">
+					<div class="card-body">
+						<div class="row calc-heading">
+							<h3><span class="sop-heading">Standard Part Time Position</span></h3>
+						</div>
+						<div class="row">
+							<div class="col-6" id="btnHouse">
+								<p><strong>Calculate by Desired Salary</strong></p>
+								<div class="form-group">
+									<label>Desired Salary: </label>
+									<input type="number" name="desiredSalary" id="desiredSalary" min="1" max="72">
+								</div>
+								<br>
+								<button id="calculateByDesiredSalary" class="btn calcBtn">Calculate</button>
+								
+								<br>
+								<br>
+								
+								<p><strong>Calculate by # of Days Left</strong></p>
+								<div class="form-group input-field inline calcInput">
+									<label># of Days Left</label>
+									<input type="number" name="remainingClasses" id="remainingClasses" min="1" max="72">
+								</div>
+								<br>
+								<button id="calculateByDaysRemaining" class="waves-effect waves-light btn calcBtn">Calculate</button>
 							</div>
-							<button id="calculateByDaysMissed" class="waves-effect waves-light btn calcBtn">Calculate</button>
-							
-							<p><strong>Calculate by # Classes Remaining</strong></p>
-							<div class="form-group input-field inline calcInput">
-								<label># Remaining Classes:</label>
-								<input type="number" name="remainingClasses" id="remainingClasses" min="1" max="72">
+							<div class="resultsDiv col-2" id="baseDiv">
 							</div>
-							<button id="calculateByDaysRemaining" class="waves-effect waves-light btn calcBtn">Calculate</button>
-						</div>
-						<div class="col-2" id="baseDiv">
-						</div>
-						<div class="col-2" id="bonusDiv">
-						</div>
-						<div class="col-2" id="totalDiv">
+							<div class="resultsDiv col-2" id="bonusDiv">
+							</div>
+							<div class="resultsDiv col-2" id="totalDiv">
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div> <!--card-->
-	
+			</div> <!--card-->
+		</div>
 		
 		<script type="text/javascript">
 
@@ -69,8 +78,19 @@
 			});
 
 			// CALCULATE COMPENSATION
+			var totalDays = 40;
 			
+			$('#btnHouse').on('click', '#calculateByDesiredSalary', function () {
+				console.log($('#desiredSalary').val());
+				var temp = $('#desiredSalary').val() * totalDays;
+				$('#baseDiv').html() + temp;
+			});
 			
+			$('#btnHouse').on('click', '#calculateByDaysRemaining', function () {
+				console.log($('#remainingClasses').val());
+				var temp = $('#remainingClasses').val() * totalDays;
+				$('#bonusDiv').html() + temp;
+			});
 
 			// Calculate by classes missed
 			/*$('#collapseNine').on("click", "#calculateByDaysMissed", function(){
