@@ -12,59 +12,60 @@
 			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
 			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
 			crossorigin="anonymous">
-		<script 
-			src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
-			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
-			crossorigin="anonymous">
-		</script>
 		<script
 			src="https://code.jquery.com/jquery-3.4.1.js"
 			integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 			crossorigin="anonymous">
 		</script>
+		<script 
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
+			crossorigin="anonymous">
+		</script>
 	</head>
 	
 	<body>
-		<div class="container">
-			<div class="row">
+		<div class="container-fluid">
+			<div id="topRow" class="row">
 				<div id="getDate">
-					<h2 id="date"></h3>
+					<h2 id="date"></h2>
 				</div>
 			</div>
 		
-			<div class="card" id="partTime">
-				<div class="row calc-heading">
-					<h3><span class="sop-heading">Standard Part Time Position</span></h3>
+			
+			<div class="row calc-heading" id="headingRow">
+				<h3><span class="sop-heading">Compensation Calculator</span></h3>
+			</div>
+			<div class="row">
+				<div class="col-sm-12" id="btnHouse">
+					<div class="col-sm-4">
+						<label>Desired Salary: </label>
+						<input type="number" name="desiredSalary" id="desiredSalary">
+					</div>
+				
+					<div class="col-sm-4">
+						<label># of Days Left:</label>
+						<input type="number" name="remainingClasses" id="remainingClasses">
+					</div>
+				
+					<div class="col-sm-4">
+						<label>Role:</label>
+						<input type="text" name="role" id="role">
+					</div>						
 				</div>
-				<div class="row">
-					<div class="col-6" id="btnHouse">
-						<p><strong>Enter info below</strong></p>
-						<div class="form-group">
-							<label>Desired Salary: </label>
-							<input type="number" name="desiredSalary" id="desiredSalary" min="1" max="72">
-						</div>
-						<br>
-						<button id="calculateByDesiredSalary" class="btn calcBtn">Calculate</button>
-						
-						<br>
-						<br>
-						
-						<p><strong>Calculate by # of Days Left</strong></p>
-						<div class="form-group input-field inline calcInput">
-							<label># of Days Left</label>
-							<input type="number" name="remainingClasses" id="remainingClasses" min="1" max="72">
-						</div>
-						<br>
-						<button id="calculateByDaysRemaining" class="waves-effect waves-light btn calcBtn">Calculate</button>
-					</div>
-					<div class="resultsDiv col-2" id="baseDiv">
-					</div>
-					<div class="resultsDiv col-2" id="bonusDiv">
-					</div>
-					<div class="resultsDiv col-2" id="totalDiv">
-					</div>
+				
+				<div class="resultsDiv col-2" id="baseDiv">
 				</div>
-			</div> <!--card-->
+				<div class="resultsDiv col-2" id="bonusDiv">
+				</div>
+				<div class="resultsDiv col-2" id="totalDiv">
+				</div>
+			</div>
+			
+			<div class="row">
+				<button id="calculate" class="btn calcBtn">Calculate</button>
+			</div>
+			
 		</div>
 		
 		<script type="text/javascript">

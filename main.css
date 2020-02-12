@@ -4,16 +4,25 @@ body {
 }
 
 .row {
-	text-align: center;
-	border: 1px solid black;
+	/* border: 1px solid black; */
+	display: flex;
+	justify-content: center;
 }
 
 p {
 	font-size: 18px;
 }
 
+#headingRow {
+	margin-top: 2%;
+}
+
 label {
 	font-size: 18px;
+}
+
+.btn {
+	color: black;
 }
 
 .resultsDiv {
@@ -21,6 +30,7 @@ label {
 }
 
 #btnHouse {
-	border: 1px solid black;
-	display: inline-block;
+	margin-top: 2%;
+	display: flex;
+	justify-content: center;
 }
