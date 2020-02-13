@@ -93,11 +93,20 @@
 			var totalDaysFT = 60;
 			var totalDaysPT = 72;
 			
-			$('#btnHouse').on('click', '#calculate', function () {
+			$('#calculate').on('click', function () {
 				console.log($('#desiredSalary').val());
-				if (5
-				var temp = $('#desiredSalary').val() / totalDays;
-				$('#baseDiv').html() + temp;
+				if (document.getElementById('full').checked) {
+					var temp = $('#desiredSalary').val() / totalDaysFT;
+					console.log(temp * $('#remainingClasses').val());
+					console.log('Full Time');
+				} else if (document.getElementById('part').checked) {
+					var temp = $('#desiredSalary').val() / totalDaysPT;
+					console.log(temp * $('#remainingClasses').val());
+					console.log('Part Time');
+				}
+				
+				//
+				//$('#baseDiv').html() + temp;
 			});
 			
 			/*$('#btnHouse').on('click', '#calculateByDaysRemaining', function () {
