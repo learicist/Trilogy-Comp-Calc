@@ -39,18 +39,21 @@
 			<div class="row">
 				<div class="col-sm-12" id="btnHouse">
 					<div class="col-sm-4">
-						<label>Desired Salary: </label>
+						<label>Desired Salary: --></label>
 						<input type="number" name="desiredSalary" id="desiredSalary">
 					</div>
 				
 					<div class="col-sm-4">
-						<label># of Days Left:</label>
+						<label># of Days Left: --></label>
 						<input type="number" name="remainingClasses" id="remainingClasses">
 					</div>
 				
 					<div class="col-sm-4">
-						<label>Role:</label>
-						<input type="text" name="role" id="role">
+						<label>Role: --></label>
+						<input type="radio" name="role" id="full" value="full">
+						<label for="full">Full Time</label>
+						<input type="radio" name="role" id="part" value="part">
+						<label for="part">Part Time</label>
 					</div>						
 				</div>
 				
@@ -90,17 +93,18 @@
 			var totalDaysFT = 60;
 			var totalDaysPT = 72;
 			
-			$('#btnHouse').on('click', '#calculateByDesiredSalary', function () {
+			$('#btnHouse').on('click', '#calculate', function () {
 				console.log($('#desiredSalary').val());
-				var temp = $('#desiredSalary').val() * totalDays;
+				if (5
+				var temp = $('#desiredSalary').val() / totalDays;
 				$('#baseDiv').html() + temp;
 			});
 			
-			$('#btnHouse').on('click', '#calculateByDaysRemaining', function () {
+			/*$('#btnHouse').on('click', '#calculateByDaysRemaining', function () {
 				console.log($('#remainingClasses').val());
 				var temp = $('#remainingClasses').val() * totalDays;
 				$('#bonusDiv').html() + temp;
-			});
+			});*/
 
 			// Calculate by classes missed
 			/*$('#collapseNine').on("click", "#calculateByDaysMissed", function(){

@@ -21,8 +21,14 @@ label {
 	font-size: 18px;
 }
 
+.col-sm-4 {
+	border: 1px solid black;
+	display: flex;
+	justify-content: center;
+}
+
 .btn {
-	color: black;
+	
 }
 
 .resultsDiv {
