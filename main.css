@@ -1,6 +1,8 @@
 body {
 	margin: 0%;
 	padding: 0%;
+	background-image: url("http://res.cloudinary.com/learicist/image/upload/c_scale,w_928/v1586361101/Trilogy%7C2U/trilogy-logo.png");
+	background-size: cover; 
 }
 
 .row {
