@@ -2,43 +2,59 @@ body {
 	margin: 0%;
 	padding: 0%;
 	background-image: url("http://res.cloudinary.com/learicist/image/upload/c_scale,w_928/v1586361101/Trilogy%7C2U/trilogy-logo.png");
-	background-size: cover; 
+	background-repeat: repeat;
+	background-size: 300px 225px; 
 }
 
 .row {
 	/* border: 1px solid black; */
 	display: flex;
 	justify-content: center;
+	margin-top: 3%;
 }
 
 p {
 	font-size: 18px;
 }
 
-#headingRow {
-	margin-top: 2%;
+.titles {
+	background-color: rgb(255, 255, 255, 0.9);
+	border: 1px solid black;
+	border-radius: 10px;
+	text-align: center;
+}
+
+#btnHouse {
+	background-color: rgb(255, 255, 255, 0.9);
+	border: 1px solid black;
+	border-radius: 10px;
+	text-align: center;
 }
 
 label {
 	font-size: 18px;
 }
 
-.col-sm-4 {
-	border: 1px solid black;
+input[type="number"] {
+	border-radius: 10px;
+	text-align: center;
+}
+
+.calcBtn {
+	background-color: rgb(255, 255, 255, 0.9);
 	display: flex;
 	justify-content: center;
-}
-
-.btn {
-	
-}
-
-.resultsDiv {
-	margin-top: 15px;
+	border-radius: 10px;
 }
 
 #btnHouse {
 	margin-top: 2%;
 	display: flex;
 	justify-content: center;
+}
+
+#calculate {
+	background-color: rgb(255, 255, 255, 0.9);
+	border: 1px solid black;
+	border-radius: 10px;
 }

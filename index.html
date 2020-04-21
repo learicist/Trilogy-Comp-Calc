@@ -27,41 +27,36 @@
 	<body>
 		<div class="container-fluid">
 			<div id="topRow" class="row">
-				<div id="getDate">
-					<h2 id="date"></h2>
+				<div class="col-sm-6 titles" id="heading">
+					<h2><span class="sop-heading">Compensation Calculator</span></h2>
 				</div>
 			</div>
 		
 			
-			<div class="row calc-heading" id="headingRow">
-				<h3><span class="sop-heading">Compensation Calculator</span></h3>
+			<div class="row calc-heading">				
+				<div class="col-sm-6 titles" id="getDate">
+					<h3 id="date"></h3>
+				</div>
 			</div>
 			<div class="row">
 				<div class="col-sm-12" id="btnHouse">
 					<div class="col-sm-4">
-						<label>Desired Salary: --></label>
+						<label>Desired Salary:</label>
 						<input type="number" name="desiredSalary" id="desiredSalary">
 					</div>
 				
 					<div class="col-sm-4">
-						<label># of Days Left: --></label>
+						<label># of Days Left:</label>
 						<input type="number" name="remainingClasses" id="remainingClasses">
 					</div>
 				
 					<div class="col-sm-4">
-						<label>Role: --></label>
+						<label>Role:</label>
 						<input type="radio" name="role" id="full" value="full">
 						<label for="full">Full Time</label>
 						<input type="radio" name="role" id="part" value="part">
 						<label for="part">Part Time</label>
 					</div>						
-				</div>
-				
-				<div class="resultsDiv col-2" id="baseDiv">
-				</div>
-				<div class="resultsDiv col-2" id="bonusDiv">
-				</div>
-				<div class="resultsDiv col-2" id="totalDiv">
 				</div>
 			</div>
 			
@@ -69,120 +64,13 @@
 				<button id="calculate" class="btn calcBtn">Calculate</button>
 			</div>
 			
+			<div class="row" id="results">
+				<div class="calcBtn col-sm-2" id="totalDiv"></div>
+			</div>
+			
 		</div>
 		
-		<script type="text/javascript">
-
-			$(document).ready(function () {
-
-				// Load today's date
-				var d = new Date();
-				var n = d.toLocaleDateString();
-				document.getElementById('date').innerHTML = "Today: " + n;
-				
-				//University Choice
-				/*let uniChoice = $('#university').val();
-				let unis = document.getElementsByClassName('uni-choice');
-				for (let i=0; i<unis.length; i++){
-					unis[i].innerHTML = uniChoice;
-				}*/
-
-			});
-
-			// CALCULATE COMPENSATION
-			var totalDaysFT = 60;
-			var totalDaysPT = 72;
-			
-			$('#calculate').on('click', function () {
-				console.log($('#desiredSalary').val());
-				if (document.getElementById('full').checked) {
-					var temp = $('#desiredSalary').val() / totalDaysFT;
-					console.log(temp * $('#remainingClasses').val());
-					console.log('Full Time');
-				} else if (document.getElementById('part').checked) {
-					var temp = $('#desiredSalary').val() / totalDaysPT;
-					console.log(temp * $('#remainingClasses').val());
-					console.log('Part Time');
-				}
-				
-				//
-				//$('#baseDiv').html() + temp;
-			});
-			
-			/*$('#btnHouse').on('click', '#calculateByDaysRemaining', function () {
-				console.log($('#remainingClasses').val());
-				var temp = $('#remainingClasses').val() * totalDays;
-				$('#bonusDiv').html() + temp;
-			});*/
-
-			// Calculate by classes missed
-			/*$('#collapseNine').on("click", "#calculateByDaysMissed", function(){
-
-				$("#baseDiv").empty();
-				$("#bonusDiv").empty();
-				$("#totalDiv").empty();
-				$('#remainingClasses').val('');
-
-				var classesMissed = $("#missedClasses").val();
-				var remainingClasses = (72 - classesMissed);
-				var totalComp = Math.round(remainingClasses * 90.28);
-				var berkeleyTotalComp = Math.round(remainingClasses * 98.8888889);
-				var basePay = Math.round(remainingClasses * 69.44);
-				var berkeleyBasePay = Math.round(remainingClasses * 78.055555);
-				var bonus =  (totalComp - basePay);
-				var berkeleyBonus = (berkeleyTotalComp - berkeleyBasePay);
-
-				//console.log(basePay, bonus, totalComp, berkeleyBasePay, berkeleyTotalComp);
-
-				$("#baseDiv")
-					.append("<p class='compHeading'>Base Pay</p>")
-					.append(basePay + '<br>' + `(Berkeley: ${berkeleyBasePay})`);
-					
-				$("#bonusDiv")
-					.append("<p class='compHeading'>Bonus</p>")
-					.append(bonus + '<br>' + `(Berkeley: ${berkeleyBonus})`);
-					
-				$("#totalDiv")
-					.append("<p class='compHeading'>Total Comp</p>")
-					.append(totalComp + '<br>' + `(Berkeley: ${berkeleyTotalComp})`);
-
-			});
-
-			// Calculate by classes remaining
-			$('#collapseNine').on("click", "#calculateByDaysRemaining", function(){
-
-				$("#baseDiv").empty();
-				$("#bonusDiv").empty();
-				$("#totalDiv").empty();
-				$('#missedClasses').val('');
-
-				var remainingClasses = $("#remainingClasses").val();
-				
-				console.log(remainingClasses);
-
-				var totalComp = Math.round(remainingClasses * 90.28);
-				var berkeleyTotalComp = Math.round(remainingClasses * 98.8888889);
-				var basePay = Math.round(remainingClasses * 69.44);
-				var berkeleyBasePay = Math.round(remainingClasses * 78.055555);
-				var bonus = (totalComp - basePay);
-				var berkeleyBonus = (berkeleyTotalComp - berkeleyBasePay);
-
-				$("#baseDiv")
-					.append("<p class='compHeading'>Base Pay</p>")
-					.append(basePay + '<br>' + `(Berkeley: ${berkeleyBasePay})`);
-					
-				$("#bonusDiv")
-					.append("<p class='compHeading'>Bonus</p>")
-					.append(bonus + '<br>' + `(Berkeley: ${berkeleyBonus})`);
-					
-				$("#totalDiv")
-					.append("<p class='compHeading'>Total Comp</p>")
-					.append(totalComp + '<br>' + `(Berkeley: ${berkeleyTotalComp})`);
-
-			});*/
-
-			
-		</script>
+		<script src="main.js"></script>
 	
 	
 	</body>
