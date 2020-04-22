@@ -32,9 +32,7 @@ $(document).ready(function () {
 			console.log('Part Time');
 			$('#totalDiv').html('$' + result).css('border', '1px solid black');
 		}
-		
-		//
-		//$('#baseDiv').html() + temp;
+
 	});
 });
 
