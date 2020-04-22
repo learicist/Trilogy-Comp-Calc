@@ -6,6 +6,11 @@ body {
 	background-size: 300px 225px; 
 }
 
+
+/* COLORS */
+/* #0074B2,#0083CA,#00A2FF,#FFFFFF,#00A5FF,#FFFFFF,#03EEFF,#00CCC2 */
+ /* #0097A7,#0DB2C3,#1ACBDE,#FFFFFF,#0DB2C3,#FFFFFF,#FFFFFF,#006974 */
+
 .row {
 	/* border: 1px solid black; */
 	display: flex;
@@ -18,6 +23,13 @@ p {
 }
 
 .titles {
+	background-color: rgb(255, 255, 255, 0.9);
+	border: 1px solid black;
+	border-radius: 10px;
+	text-align: center;
+}
+
+#greeting {
 	background-color: rgb(255, 255, 255, 0.9);
 	border: 1px solid black;
 	border-radius: 10px;
@@ -57,4 +69,8 @@ input[type="number"] {
 	background-color: rgb(255, 255, 255, 0.9);
 	border: 1px solid black;
 	border-radius: 10px;
+}
+
+#totalDiv {
+	font-size: 20px;
 }

@@ -24,13 +24,13 @@ $(document).ready(function () {
 			var result = temp.toFixed(2) * $('#remainingClasses').val();
 			console.log(result);
 			console.log('Full Time');
-			$('#totalDiv').html(result);
+			$('#totalDiv').html('$' + result).css('border', '1px solid black');
 		} else if (document.getElementById('part').checked) {
 			var temp = $('#desiredSalary').val() / totalDaysPT;
 			var result = temp.toFixed(2) * $('#remainingClasses').val();
 			console.log(result);
 			console.log('Part Time');
-			$('#totalDiv').html(result);
+			$('#totalDiv').html('$' + result).css('border', '1px solid black');
 		}
 		
 		//
